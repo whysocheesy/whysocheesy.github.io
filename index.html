@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why So Cheesy??? | Jain Food</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <h1>🧀 Why So Cheesy???</h1>
+  </div>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <a href="#hero" class="logo">🧀 Why So Cheesy???</a>
+      <ul class="nav-links">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#offers">Offers</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button id="cart-btn">🛒 Cart</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Delicious Jain Food, Extra Cheesy!</h1>
+      <p>Fresh, pure, and made with love.</p>
+      <button class="cta">Order Now</button>
+    </div>
+  </section>
+
+  <!-- Featured Dishes -->
+  <section id="featured">
+    <h2>⭐ Popular Dishes</h2>
+    <div class="featured-container" id="featured-dishes"></div>
+  </section>
+
+  <!-- Full Menu -->
+  <section id="menu">
+    <h2>🍴 Our Menu</h2>
+    <input type="text" id="search" placeholder="Search dishes...">
+    <div class="filter-buttons">
+      <button data-category="all">All</button>
+      <button data-category="pizza">Pizza</button>
+      <button data-category="burger">Burger</button>
+      <button data-category="drinks">Drinks</button>
+      <button data-category="desserts">Desserts</button>
+    </div>
+    <div class="menu-container" id="menu-items"></div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>👨‍🍳 About Us</h2>
+    <p>At Why So Cheesy???, we specialize in Jain-friendly cheesy delights. Our mission is to serve food that’s pure, delicious, and unforgettable.</p>
+  </section>
+
+  <!-- Offers -->
+  <section id="offers">
+    <h2>🔥 Special Offers</h2>
+    <p>Get 20% off on your first online order!</p>
+    <div id="countdown"></div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews">
+    <h2>💬 Customer Reviews</h2>
+    <div class="reviews-container">
+      <p>"Best Jain pizza ever! So cheesy and pure." ⭐⭐⭐⭐⭐</p>
+      <p>"Loved the burgers, guilt-free indulgence." ⭐⭐⭐⭐</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>📩 Contact Us</h2>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>📍 Jamui, Bihar, India | ⏰ 10 AM - 10 PM</p>
+    <p>Follow us: 
+      <a href="https://www.instagram.com/why_so_cheesy/?hl=en" target="_blank">Instagram</a>
+    </p>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div id="cart-sidebar">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <p>Total: ₹<span id="cart-total">0</span></p>
+    <button id="checkout-btn">Checkout</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
