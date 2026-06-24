@@ -1,111 +1,446 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Why So Cheesy??? | Jain Food</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why So Cheesy??? | Authentic Jain Food Restaurant</title>
+    <link rel="stylesheet" href="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&family=Roboto:wght@300;400&display=swap)" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="#">
 </head>
 <body>
-  <!-- Preloader -->
-  <div id="preloader">
-    <h1>🧀 Why So Cheesy???</h1>
-  </div>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="cheese-slice">
+                <div class="cheese-hole"></div>
+                <div class="cheese-hole"></div>
+                <div class="cheese-hole"></div>
+            </div>
+            <h2>Why So Cheesy???</h2>
+            <p>Loading delicious Jain food...</p>
+        </div>
+    </div>
 
-  <!-- Navbar -->
-  <header>
+    <!-- Sticky Navigation -->
     <nav class="navbar">
-      <a href="#hero" class="logo">🧀 Why So Cheesy???</a>
-      <ul class="nav-links">
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#offers">Offers</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><button id="cart-btn">🛒 Cart</button></li>
-      </ul>
+        <div class="nav-container">
+            <div class="logo">
+                <h1><i class="fas fa-cheese"></i> Why So Cheesy???</h1>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#menu" class="nav-link">Menu</a>
+                <a href="#featured" class="nav-link">Specialties</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#offers" class="nav-link">Offers</a>
+                <a href="#reviews" class="nav-link">Reviews</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <div class="cart-icon-container">
+                    <i class="fas fa-shopping-cart" id="cart-icon"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <div class="hero-content">
-      <h1>Delicious Jain Food, Extra Cheesy!</h1>
-      <p>Fresh, pure, and made with love.</p>
-      <button class="cta">Order Now</button>
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Your Order</h3>
+            <i class="fas fa-times close-cart"></i>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be inserted here by JavaScript -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <h4>Total: ₹<span id="cart-total-price">0</span></h4>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+            <button class="clear-cart-btn">Clear Cart</button>
+        </div>
     </div>
-  </section>
 
-  <!-- Featured Dishes -->
-  <section id="featured">
-    <h2>⭐ Popular Dishes</h2>
-    <div class="featured-container" id="featured-dishes"></div>
-  </section>
-
-  <!-- Full Menu -->
-  <section id="menu">
-    <h2>🍴 Our Menu</h2>
-    <input type="text" id="search" placeholder="Search dishes...">
-    <div class="filter-buttons">
-      <button data-category="all">All</button>
-      <button data-category="pizza">Pizza</button>
-      <button data-category="burger">Burger</button>
-      <button data-category="drinks">Drinks</button>
-      <button data-category="desserts">Desserts</button>
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-message"></span>
     </div>
-    <div class="menu-container" id="menu-items"></div>
-  </section>
 
-  <!-- About -->
-  <section id="about">
-    <h2>👨‍🍳 About Us</h2>
-    <p>At Why So Cheesy???, we specialize in Jain-friendly cheesy delights. Our mission is to serve food that’s pure, delicious, and unforgettable.</p>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="slide active">
+                <div class="slide-content">
+                    <h2 class="hero-title">100% Jain • 100% Delicious</h2>
+                    <p class="hero-subtitle">Authentic vegetarian cheese specialities made with traditional Jain values</p>
+                    <button class="order-btn">Order Now <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <h2 class="hero-title">Melt-in-Your-Mouth Cheese</h2>
+                    <p class="hero-subtitle">Experience the perfect blend of tradition and cheesy innovation</p>
+                    <button class="order-btn">Explore Menu <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <h2 class="hero-title">Fresh • Pure • Authentic</h2>
+                    <p class="hero-subtitle">Serving Jain community with love since 2020</p>
+                    <button class="order-btn">Book a Table <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="slider-controls">
+            <span class="slider-dot active" data-slide="0"></span>
+            <span class="slider-dot" data-slide="1"></span>
+            <span class="slider-dot" data-slide="2"></span>
+        </div>
+    </section>
 
-  <!-- Offers -->
-  <section id="offers">
-    <h2>🔥 Special Offers</h2>
-    <p>Get 20% off on your first online order!</p>
-    <div id="countdown"></div>
-  </section>
+    <!-- Featured Section -->
+    <section class="featured" id="featured">
+        <div class="container">
+            <h2 class="section-title">Our Signature Dishes</h2>
+            <p class="section-subtitle">Customer favorites that keep them coming back for more</p>
+            
+            <div class="featured-grid">
+                <!-- Featured items will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
 
-  <!-- Reviews -->
-  <section id="reviews">
-    <h2>💬 Customer Reviews</h2>
-    <div class="reviews-container">
-      <p>"Best Jain pizza ever! So cheesy and pure." ⭐⭐⭐⭐⭐</p>
-      <p>"Loved the burgers, guilt-free indulgence." ⭐⭐⭐⭐</p>
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <h2 class="section-title">Our Delicious Menu</h2>
+            <p class="section-subtitle">All dishes prepared following strict Jain dietary principles</p>
+            
+            <div class="menu-controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="menu-search" placeholder="Search for dishes...">
+                </div>
+                <div class="category-filter">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="pizza">Pizza</button>
+                    <button class="category-btn" data-category="burger">Burger</button>
+                    <button class="category-btn" data-category="pasta">Pasta</button>
+                    <button class="category-btn" data-category="dessert">Desserts</button>
+                    <button class="category-btn" data-category="drink">Drinks</button>
+                </div>
+            </div>
+            
+            <div class="menu-grid">
+                <!-- Menu items will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Our Story</h2>
+                    <p>Founded in 2020, <strong>Why So Cheesy???</strong> was born from a simple idea: to create delicious, authentic Jain food that doesn't compromise on taste or tradition.</p>
+                    <p>Our chefs combine traditional Jain cooking methods with modern culinary techniques to create cheesy masterpieces that are 100% vegetarian and follow all Jain dietary principles.</p>
+                    <p>We use only the freshest ingredients, locally sourced vegetables, and authentic spices to ensure every bite is bursting with flavor and made with love.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>5000+</h3>
+                            <p>Happy Customers</p>
+                        </div>
+                        <div class="stat">
+                            <h3>50+</h3>
+                            <p>Menu Items</p>
+                        </div>
+                        <div class="stat">
+                            <h3>4.8</h3>
+                            <p>Average Rating</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-frame">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section class="offers" id="offers">
+        <div class="container">
+            <h2 class="section-title">Special Offers</h2>
+            <p class="section-subtitle">Don't miss out on these delicious deals</p>
+            
+            <div class="offers-container">
+                <div class="offer-card">
+                    <div class="offer-badge">20% OFF</div>
+                    <h3>Family Feast Friday</h3>
+                    <p>Every Friday, get 20% off on all family combo packs</p>
+                    <div class="offer-timer" id="timer1">
+                        <div class="time-unit">
+                            <span class="time-value">00</span>
+                            <span class="time-label">Days</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-value">00</span>
+                            <span class="time-label">Hours</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-value">00</span>
+                            <span class="time-label">Minutes</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-badge">BUY 1 GET 1</div>
+                    <h3>Cheese Lover's Special</h3>
+                    <p>Buy any large cheese pizza, get a medium pizza free</p>
+                    <div class="offer-timer" id="timer2">
+                        <div class="time-unit">
+                            <span class="time-value">00</span>
+                            <span class="time-label">Days</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-value">00</span>
+                            <span class="time-label">Hours</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-value">00</span>
+                            <span class="time-label">Minutes</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-badge">FREE DELIVERY</div>
+                    <h3>Weekend Treat</h3>
+                    <p>Free delivery on all orders above ₹500 on Saturdays & Sundays</p>
+                    <a href="#" class="offer-link">Use code: CHEESYWEEKEND</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <p class="section-subtitle">Real feedback from our Jain food lovers</p>
+            
+            <div class="reviews-slider">
+                <div class="review-card">
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"As a Jain family, finding authentic vegetarian cheese dishes was tough until we found Why So Cheesy???. Their Margherita pizza is the best!"</p>
+                    <div class="review-author">
+                        <h4>Priya Shah</h4>
+                        <p>Regular Customer</p>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="review-text">"The cheese garlic bread is to die for! Perfectly baked with authentic Jain ingredients. Highly recommended for all cheese lovers!"</p>
+                    <div class="review-author">
+                        <h4>Rahul Jain</h4>
+                        <p>Food Blogger</p>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Their attention to Jain dietary details is impressive. The paneer tikka pizza is now our family's weekend special!"</p>
+                    <div class="review-author">
+                        <h4>Anjali Mehta</h4>
+                        <p>Local Resident</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">We'd love to hear from you</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Visit Us</h3>
+                            <p>123 Jain Street, Food District<br>Mumbai, Maharashtra 400001</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Opening Hours</h3>
+                            <p>Monday - Friday: 11am - 11pm<br>Saturday - Sunday: 10am - 12am</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Call Us</h3>
+                            <p>+91 98765 43210<br>+91 98765 43211</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email Us</h3>
+                            <p>order@whysocheesy.com<br>info@whysocheesy.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                            <div class="error-message" id="name-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email" required>
+                            <div class="error-message" id="email-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="Phone Number">
+                            <div class="error-message" id="phone-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                            <div class="error-message" id="message-error"></div>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-cheese"></i> Why So Cheesy???</h3>
+                    <p>Serving authentic Jain food with love and tradition since 2020. Our commitment is to provide delicious, pure vegetarian cheese dishes that follow all Jain principles.</p>
+                    <div class="social-links">
+                        <a href="[instagram.com](https://www.instagram.com/why_so_cheesy/?hl=en)" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#offers">Special Offers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Jain Street, Mumbai</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> order@whysocheesy.com</li>
+                        <li><i class="fas fa-clock"></i> Open: 11am - 11pm</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for exclusive offers and updates</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your Email">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Why So Cheesy???. All rights reserved. | Designed with <i class="fas fa-heart"></i> for the Jain community</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple Checkout Modal -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h3><i class="fas fa-receipt"></i> Order Summary</h3>
+                <i class="fas fa-times close-checkout"></i>
+            </div>
+            <div class="checkout-body">
+                <div class="checkout-items">
+                    <!-- Checkout items will be inserted here -->
+                </div>
+                <div class="checkout-total">
+                    <p>Subtotal: ₹<span id="checkout-subtotal">0</span></p>
+                    <p>Delivery: ₹<span id="delivery-charge">50</span></p>
+                    <p class="total-amount">Total: ₹<span id="checkout-total">0</span></p>
+                </div>
+                <div class="checkout-form">
+                    <input type="text" placeholder="Delivery Address" id="delivery-address" required>
+                    <input type="tel" placeholder="Phone Number" id="checkout-phone" required>
+                    <select id="payment-method">
+                        <option value="">Select Payment Method</option>
+                        <option value="cod">Cash on Delivery</option>
+                        <option value="online">Online Payment</option>
+                    </select>
+                </div>
+            </div>
+            <div class="checkout-footer">
+                <button class="confirm-order-btn">Confirm Order</button>
+                <button class="cancel-checkout-btn">Cancel</button>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>📩 Contact Us</h2>
-    <form id="contact-form">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="email" id="email" placeholder="Your Email" required>
-      <textarea id="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>📍 Jamui, Bihar, India | ⏰ 10 AM - 10 PM</p>
-    <p>Follow us: 
-      <a href="https://www.instagram.com/why_so_cheesy/?hl=en" target="_blank">Instagram</a>
-    </p>
-  </footer>
-
-  <!-- Cart Sidebar -->
-  <div id="cart-sidebar">
-    <h2>Your Cart</h2>
-    <div id="cart-items"></div>
-    <p>Total: ₹<span id="cart-total">0</span></p>
-    <button id="checkout-btn">Checkout</button>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
